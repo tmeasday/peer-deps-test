@@ -1,0 +1,9 @@
+{
+  "name": "tmeasday-test-package-d-parent",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "tmeasday-test-package-d": "1.0.1"
+  }
+}

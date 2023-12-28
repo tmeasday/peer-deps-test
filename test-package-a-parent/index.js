@@ -1,0 +1,1 @@
+module.exports = require('tmeasday-test-package-a');

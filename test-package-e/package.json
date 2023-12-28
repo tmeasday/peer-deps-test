@@ -1,0 +1,12 @@
+{
+  "name": "tmeasday-test-package-e",
+  "version": "1.0.3",
+  "main": "index.mjs",
+  "license": "MIT",
+  "dependencies": {
+    "tmeasday-test-package-a": "1.0.4"
+  },
+  "exports": {
+    ".": "./index.mjs"
+  }
+}

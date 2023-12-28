@@ -1,0 +1,14 @@
+{
+  "name": "tmeasday-test-package-c",
+  "version": "1.0.2",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "tmeasday-test-package-a": "1.0.4"
+  },
+  "peerDependenciesMeta": {
+    "tmeasday-test-package-a": {
+      "optional": true
+    }
+  }
+}

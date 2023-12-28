@@ -1,0 +1,9 @@
+{
+  "name": "tmeasday-test-package-b",
+  "version": "1.0.5",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "tmeasday-test-package-a": "1.0.4"
+  }
+}
