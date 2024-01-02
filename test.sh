@@ -22,11 +22,17 @@ elif [ "${CMD}" = "npm" ]; then
   VERSION=${VERSION:-10.2.3}
 fi
 
-echo '{ "name": "test-app", "scripts": { "start": "node index.js" } }' > package.json
-
-echo 'hoist=false' > .npmrc
+if [ "${WS}" = "1" ]; then
+  echo '{ "name": "test-project", "private": true, "workspaces": ["package"] }' > package.json
+  echo 'packages:' > pnpm-workspace.yaml
+  echo "  - 'package'" >> pnpm-workspace.yaml
+else
+  echo '{ "name": "test-package", "scripts": { "start": "node index.js" } }' > package.json
+fi
 
 header "Setup package manager"
+
+echo 'hoist=false' > .npmrc
 
 if [ "${CMD}" = "yarn" ]; then
   yarn set version $VERSION
@@ -39,9 +45,16 @@ if [ "x${NO_PNP}" == "x1" ]; then
   yarn config set nodeLinker node-modules
 fi
 
+
+if [ "${WS}" = "1" ]; then
+  mkdir package
+  cd package
+  echo '{ "name": "test-package", "version": "1.0.0", "scripts": { "start": "node index.js" } }' > package.json
+  $CMD install
+fi
+
 header "Package manager version"
 $CMD --version
-
 
 if [ x$DEP1 != "x" ]; then
   header "Install ${DEP1}"
